@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matteo Spezialetti — DISIM, University of L'Aquila</title>
+<meta name="description" content="Matteo Spezialetti, Ph.D. — Research Fellow at DISIM, University of L'Aquila. Optimization and machine learning for e-health, explainable AI, physiological signal analysis.">
+
+<!-- ====================================================================
+     SITO PERSONALE - file unico, nessuna dipendenza esterna.
+     Pubblicazione: caricare questo file (piu' foto e PDF del CV) su
+     GitHub Pages o sullo spazio web di ateneo. Vedi LEGGIMI.md.
+
+     COME SI MODIFICA
+     - Ogni testo esiste in due lingue:
+           <span lang="en">English</span><span lang="it">Italiano</span>
+       Il CSS mostra solo la lingua attiva: aggiungendo un testo vanno
+       sempre scritte entrambe le versioni.
+     - NOVITA': copiare un blocco <li class="news-item"> e metterlo in cima.
+     - PUBBLICAZIONI: ogni voce e' un <li class="pub" data-type="...">
+       con data-type = journal | conference | chapter. I filtri in alto
+       lavorano su quell'attributo, lo script non va toccato.
+     ==================================================================== -->
+
+<style>
+  :root{
+    --accent:#8C2F39;
+    --accent-soft:#f3e9ea;
+    --ink:#1d1d1f;
+    --muted:#6b6b70;
+    --line:#e3e3e6;
+    --bg:#ffffff;
+    --maxw:860px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    font-size:17px; line-height:1.6;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+
+  /* --- lingua: mostra solo quella attiva --- */
+  html[data-lang="en"] [lang="it"]{display:none}
+  html[data-lang="it"] [lang="en"]{display:none}
+
+  /* --- barra superiore --- */
+  header.top{position:sticky; top:0; z-index:10; background:rgba(255,255,255,.95);
+    backdrop-filter:saturate(180%) blur(8px); border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex; align-items:center; gap:18px; height:54px}
+  nav{display:flex; gap:18px; flex-wrap:wrap; font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:14px}
+  nav a{color:var(--muted); text-decoration:none}
+  nav a:hover{color:var(--accent)}
+  .langswitch{margin-left:auto; display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden}
+  .langswitch button{font-family:system-ui,sans-serif; font-size:13px; padding:4px 11px; border:0;
+    background:transparent; color:var(--muted); cursor:pointer}
+  .langswitch button[aria-pressed="true"]{background:var(--accent); color:#fff}
+
+  /* --- intestazione --- */
+  .hero{padding:48px 0 30px; border-bottom:1px solid var(--line)}
+  .hero .wrap{display:flex; gap:30px; align-items:flex-start; flex-wrap:wrap}
+  .hero-text{flex:1 1 440px}
+  h1{font-size:34px; line-height:1.15; margin:0 0 6px;
+     font-family:system-ui,-apple-system,"Segoe UI",sans-serif; letter-spacing:-.02em}
+  .role{color:var(--accent); font-size:18px; margin:0 0 4px}
+  .affil{color:var(--muted); margin:0 0 16px}
+  .photo{width:150px; height:190px; object-fit:cover; border-radius:6px; background:#eee;
+         border:1px solid var(--line)}
+  .contacts{display:flex; flex-wrap:wrap; gap:10px 18px; font-size:15px;
+            font-family:system-ui,sans-serif; margin-top:14px}
+  .contacts a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+  .contacts a:hover{border-bottom-color:var(--accent); color:var(--accent)}
+
+  /* --- indicatori sintetici --- */
+  .stats{display:flex; flex-wrap:wrap; gap:26px; margin:20px 0 4px;
+         font-family:system-ui,sans-serif}
+  .stat b{display:block; font-size:22px; color:var(--accent); line-height:1.1}
+  .stat span{font-size:13px; color:var(--muted)}
+
+  /* --- sezioni --- */
+  section{padding:38px 0 6px; border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:0}
+  h2{font-size:14px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent);
+     font-family:system-ui,sans-serif; margin:0 0 18px; font-weight:700}
+  h3{font-size:17px; margin:24px 0 8px; font-family:system-ui,sans-serif}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px; padding-left:0; list-style:none}
+
+  /* --- temi di ricerca --- */
+  .topics{display:grid; grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); gap:14px; margin-bottom:16px}
+  .topic{border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:6px; padding:12px 14px}
+  .topic b{display:block; font-family:system-ui,sans-serif; font-size:15px; margin-bottom:3px}
+  .topic small{color:var(--muted); font-size:14.5px; line-height:1.45; display:block}
+
+  /* --- news e righe con data --- */
+  .news-item{display:flex; gap:16px; padding:9px 0; border-bottom:1px dotted var(--line)}
+  .news-item:last-child{border-bottom:0}
+  .news-date{flex:0 0 100px; color:var(--muted); font-size:14px;
+             font-family:system-ui,sans-serif; padding-top:3px}
+  .news-body{flex:1}
+  .tag{display:inline-block; font-family:system-ui,sans-serif; font-size:11px; letter-spacing:.06em;
+       text-transform:uppercase; color:var(--accent); background:var(--accent-soft);
+       border-radius:4px; padding:1px 7px; margin-right:8px; vertical-align:2px}
+
+  /* --- pubblicazioni --- */
+  .filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;
+           font-family:system-ui,sans-serif; font-size:14px}
+  .filters button{border:1px solid var(--line); background:#fff; color:var(--muted);
+    border-radius:999px; padding:5px 14px; cursor:pointer}
+  .filters button[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:#fff}
+  .pub{padding:12px 0; border-bottom:1px dotted var(--line)}
+  .pub:last-child{border-bottom:0}
+  .pub .title{display:block}
+  .pub .venue{color:var(--muted); font-size:15px}
+  .pub .year{font-family:system-ui,sans-serif; font-size:13px; color:var(--accent); margin-right:10px}
+  .me{font-weight:700}
+  .note{font-size:14px; color:var(--muted)}
+
+  footer{padding:28px 0 50px; color:var(--muted); font-size:14px;
+         font-family:system-ui,sans-serif}
+
+  @media (max-width:620px){
+    body{font-size:16px}
+    h1{font-size:27px}
+    .photo{width:112px; height:142px}
+    .news-date{flex-basis:82px; font-size:13px}
+    nav{gap:12px; font-size:13px}
+    .stats{gap:18px}
+  }
+  @media print{ header.top{display:none} section{break-inside:avoid} }
+</style>
+</head>
+
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <nav>
+      <a href="#about"><span lang="en">About</span><span lang="it">Profilo</span></a>
+      <a href="#research"><span lang="en">Research</span><span lang="it">Ricerca</span></a>
+      <a href="#news"><span lang="en">News</span><span lang="it">Novità</span></a>
+      <a href="#pubs"><span lang="en">Publications</span><span lang="it">Pubblicazioni</span></a>
+      <a href="#teaching"><span lang="en">Teaching</span><span lang="it">Didattica</span></a>
+    </nav>
+    <div class="langswitch" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="it" aria-pressed="false">IT</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ INTESTAZIONE ========================= -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1>Matteo Spezialetti</h1>
+      <p class="role">
+        <span lang="en">Ph.D. — Research Fellow</span>
+        <span lang="it">Ph.D. — Assegnista di ricerca</span>
+      </p>
+      <p class="affil">
+        <span lang="en">Department of Information Engineering, Computer Science and Mathematics (DISIM),
+          University of L'Aquila</span>
+        <span lang="it">Dipartimento di Ingegneria e Scienze dell'Informazione e Matematica (DISIM),
+          Università degli Studi dell'Aquila</span>
+      </p>
+      <div class="contacts">
+        <a href="mailto:matteo.spezialetti@univaq.it">matteo.spezialetti@univaq.it</a>
+        <a href="https://scholar.google.com/citations?user=UfLxHp8AAAAJ">Google Scholar</a>
+        <a href="https://orcid.org/0000-0001-5786-3999">ORCID</a>
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=55421242300">Scopus</a>
+        <a href="cv_en.pdf"><span lang="en">CV (PDF)</span><span lang="it">CV in inglese (PDF)</span></a>
+        <a href="cv_it.pdf"><span lang="en">CV in Italian (PDF)</span><span lang="it">CV in italiano (PDF)</span></a>
+      </div>
+
+      <!-- Indicatori: aggiornare insieme alla tabella del CV -->
+      <div class="stats">
+        <div class="stat"><b>56</b><span lang="en">documents</span><span lang="it">documenti</span></div>
+        <div class="stat"><b>1235</b><span lang="en">citations</span><span lang="it">citazioni</span></div>
+        <div class="stat"><b>19</b><span>h-index</span></div>
+        <div class="stat"><b></b><span lang="en">Scopus, October 2026</span><span lang="it">Scopus, ottobre 2026</span></div>
+      </div>
+    </div>
+    <!-- sostituisci con la tua foto (o elimina la riga) -->
+    <img class="photo" src="fotocv.png" alt="Matteo Spezialetti">
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- =============================== PROFILO =========================== -->
+<section id="about">
+  <h2><span lang="en">About</span><span lang="it">Profilo</span></h2>
+  <p>
+    <span lang="en">I am a research fellow at DISIM, University of L'Aquila, where I previously held a
+      fixed-term researcher position (RTD-A). My work sits between optimization, machine learning and
+      signal processing, with applications to health: treatment planning and delivery in proton therapy,
+      analysis of physiological signals, and systems that read physiological and affective information
+      during human–machine interaction. More recently I have been working on making learned models
+      explainable, and on web and graph data with a responsible-AI angle.</span>
+    <span lang="it">Sono assegnista di ricerca al DISIM dell'Università dell'Aquila, dove sono stato
+      ricercatore a tempo determinato (RTD-A). Il mio lavoro sta tra ottimizzazione, apprendimento
+      automatico ed elaborazione dei segnali, con applicazioni in ambito sanitario: pianificazione e
+      somministrazione del trattamento in protonterapia, analisi di segnali fisiologici e sistemi che
+      leggono informazione fisiologica e affettiva durante l'interazione uomo–macchina. Negli ultimi
+      anni mi occupo anche di rendere spiegabili i modelli appresi e di dati web e grafi in ottica di
+      intelligenza artificiale responsabile.</span>
+  </p>
+  <p>
+    <span lang="en">I am part of the <a href="https://aiimlab.org/">Artificial Intelligence &amp;
+      Information Mining (AIIM)</a> group and of the research group on optimization of computational
+      resources in treatment planning systems for hadron therapy. I serve as Associate Editor for
+      <em>Frontiers in Neurology — Artificial Intelligence in Neurology</em>, and in the program
+      committees of ECAI, VISAPP and IEEE CBMS.</span>
+    <span lang="it">Faccio parte del gruppo <a href="https://aiimlab.org/">Artificial Intelligence &amp;
+      Information Mining (AIIM)</a> e del gruppo di ricerca sull'ottimizzazione delle risorse
+      computazionali nei treatment planning system per adroterapia. Sono Associate Editor di
+      <em>Frontiers in Neurology — Artificial Intelligence in Neurology</em> e membro dei comitati di
+      programma di ECAI, VISAPP e IEEE CBMS.</span>
+  </p>
+</section>
+
+<!-- ============================== RICERCA ============================ -->
+<!-- Per aggiungere/togliere un tema: duplica o elimina un blocco .topic -->
+<section id="research">
+  <h2><span lang="en">Research topics</span><span lang="it">Temi di ricerca</span></h2>
+  <div class="topics">
+
+    <div class="topic">
+      <b><span lang="en">Explainable AI &amp; preference learning</span>
+         <span lang="it">AI spiegabile e preference learning</span></b>
+      <small>
+        <span lang="en">Post hoc explanation of neural networks through inductive logic programming:
+          symbolic rules that approximate a trained model and can be inspected.</span>
+        <span lang="it">Spiegazione post hoc di reti neurali tramite inductive logic programming: regole
+          simboliche che approssimano un modello addestrato e possono essere ispezionate.</span>
+      </small>
+    </div>
+
+    <div class="topic">
+      <b><span lang="en">Optimization for proton therapy</span>
+         <span lang="it">Ottimizzazione per la protonterapia</span></b>
+      <small>
+        <span lang="en">Mixed integer linear programming for spread-out Bragg peak design, nozzle travel
+          time minimization, and deep learning for fast dose refinement.</span>
+        <span lang="it">Programmazione lineare intera mista per la costruzione dello spread-out Bragg
+          peak, minimizzazione dei tempi di movimentazione e deep learning per il raffinamento rapido
+          della dose.</span>
+      </small>
+    </div>
+
+    <div class="topic">
+      <b><span lang="en">Physiological signals &amp; wearables</span>
+         <span lang="it">Segnali fisiologici e dispositivi indossabili</span></b>
+      <small>
+        <span lang="en">EEG, MEG and sEMG analysis, brain–computer interfaces, and feasibility of
+          wearable devices for rehabilitation at home.</span>
+        <span lang="it">Analisi di segnali EEG, MEG e sEMG, interfacce cervello–calcolatore e
+          fattibilità dei dispositivi indossabili per la riabilitazione a domicilio.</span>
+      </small>
+    </div>
+
+    <div class="topic">
+      <b><span lang="en">Affective computing &amp; interaction</span>
+         <span lang="it">Affective computing e interazione</span></b>
+      <small>
+        <span lang="en">Emotion recognition from physiological and facial data, hand tracking and gesture
+          recognition, human–robot interaction.</span>
+        <span lang="it">Riconoscimento delle emozioni da dati fisiologici e facciali, tracciamento della
+          mano e riconoscimento dei gesti, interazione uomo–robot.</span>
+      </small>
+    </div>
+
+    <div class="topic">
+      <b><span lang="en">Web, graphs &amp; responsible intelligence</span>
+         <span lang="it">Web, grafi e intelligenza responsabile</span></b>
+      <small>
+        <span lang="en">Graph-based analysis of web and social media data, and the responsibility
+          questions it raises — the theme of the Web&amp;Graph workshop at WSDM 2026.</span>
+        <span lang="it">Analisi a grafo di dati web e social e questioni di responsabilità che ne
+          derivano: il tema del workshop Web&amp;Graph a WSDM 2026.</span>
+      </small>
+    </div>
+
+    <div class="topic">
+      <b><span lang="en">Strings, entropy and compression</span>
+         <span lang="it">Stringhe, entropia e compressione</span></b>
+      <small>
+        <span lang="en">Edit and Hamming distances with k errors, and the relation between compression,
+          entropy and learned models.</span>
+        <span lang="it">Distanze di edit e di Hamming con k errori e relazioni tra compressione, entropia
+          e modelli appresi.</span>
+      </small>
+    </div>
+
+  </div>
+  <p class="note">
+    <span lang="en">Current funded project: <em>Definition of rehabilitation protocols for masticatory
+      function and of sEMG data acquisition and analysis — feasibility study for the home use of wearable
+      devices</em> (joint DISIM–MESVA project, University of L'Aquila, 2025).</span>
+    <span lang="it">Progetto finanziato in corso: <em>Definizione di protocolli di riabilitazione della
+      funzione masticatoria, di acquisizione e analisi di dati sEMG — studio di fattibilità per l'impiego
+      domestico di wearable device</em> (progetto congiunto DISIM–MESVA, Università dell'Aquila, 2025).</span>
+  </p>
+</section>
+
+<!-- =============================== NOVITA' =========================== -->
+<section id="news">
+  <h2><span lang="en">News</span><span lang="it">Novità</span></h2>
+  <ul>
+    <li class="news-item">
+      <div class="news-date">2026</div>
+      <div class="news-body">
+        <span class="tag">workshop</span>
+        <span lang="en">Co-organizer and session chair of <strong>Web&amp;Graph 2026</strong>, workshop on
+          Web &amp; Graphs, Responsible Intelligence and Social Media, co-located with the 19th ACM
+          International Conference on Web Search and Data Mining (WSDM 2026).</span>
+        <span lang="it">Co-organizzatore e session chair di <strong>Web&amp;Graph 2026</strong>, workshop su
+          Web &amp; Graphs, Responsible Intelligence and Social Media, co-locato con la 19th ACM
+          International Conference on Web Search and Data Mining (WSDM 2026).</span>
+      </div>
+    </li>
+    <li class="news-item">
+      <div class="news-date">2026</div>
+      <div class="news-body">
+        <span class="tag">paper</span>
+        <span lang="en">New article in <em>Theory and Practice of Logic Programming</em> on explaining
+          neural networks for preference learning with a post hoc inductive logic programming
+          approach.</span>
+        <span lang="it">Nuovo articolo su <em>Theory and Practice of Logic Programming</em> sulla
+          spiegazione di reti neurali per il preference learning con un approccio post hoc basato su
+          inductive logic programming.</span>
+      </div>
+    </li>
+    <li class="news-item">
+      <div class="news-date">2025</div>
+      <div class="news-body">
+        <span class="tag">project</span>
+        <span lang="en">Funded joint DISIM–MESVA project on rehabilitation protocols for masticatory
+          function and on sEMG acquisition with wearable devices used at home.</span>
+        <span lang="it">Finanziato il progetto congiunto DISIM–MESVA su protocolli di riabilitazione della
+          funzione masticatoria e acquisizione sEMG con dispositivi indossabili a domicilio.</span>
+      </div>
+    </li>
+    <li class="news-item">
+      <div class="news-date">2024</div>
+      <div class="news-body">
+        <span class="tag">paper</span>
+        <span lang="en">Article in the <em>Journal of Neuroscience</em> on the encoding of manual dexterity
+          through modulation of intrinsic alpha band connectivity.</span>
+        <span lang="it">Articolo sul <em>Journal of Neuroscience</em> sulla codifica della destrezza
+          manuale attraverso la modulazione della connettività intrinseca in banda alfa.</span>
+      </div>
+    </li>
+    <li class="news-item">
+      <div class="news-date">2024</div>
+      <div class="news-body">
+        <span class="tag">teaching</span>
+        <span lang="en">Lectures at Mälardalen University (ERASMUS+ teaching agreement) on ML for signal
+          and image processing and on optimization in proton therapy.</span>
+        <span lang="it">Lezioni alla Mälardalen University (accordo di mobilità ERASMUS+) su ML per segnali
+          e immagini e su ottimizzazione in protonterapia.</span>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- =========================== PUBBLICAZIONI ========================= -->
+<section id="pubs">
+  <h2><span lang="en">Selected publications</span><span lang="it">Pubblicazioni selezionate</span></h2>
+
+  <div class="filters" role="group">
+    <button type="button" data-filter="all" aria-pressed="true">
+      <span lang="en">All</span><span lang="it">Tutte</span></button>
+    <button type="button" data-filter="journal" aria-pressed="false">
+      <span lang="en">Journal articles</span><span lang="it">Riviste</span></button>
+    <button type="button" data-filter="conference" aria-pressed="false">
+      <span lang="en">Conference papers</span><span lang="it">Convegni</span></button>
+  </div>
+
+  <ul id="publist">
+    <li class="pub" data-type="journal">
+      <span class="year">2026</span>
+      <span class="title">D. Fossemò, F. Mignosi, G. Placidi, L. Raggioli, <span class="me">M. Spezialetti</span>,
+        F. A. D'Asaro, “Explaining neural networks in preference learning: a post hoc inductive logic
+        programming approach”.</span>
+      <span class="venue">Theory and Practice of Logic Programming, 1–49.</span>
+    </li>
+    <li class="pub" data-type="conference">
+      <span class="year">2026</span>
+      <span class="title"><span class="me">M. Spezialetti</span>, A. D'Angelo, F. Ciccarelli, G. Costanzo,
+        D. Fossemò, F. Mignosi, “Web&amp;Graph 2026: workshop on Web &amp; Graphs, Responsible Intelligence
+        and Social Media”.</span>
+      <span class="venue">Proc. of the 19th ACM Int. Conf. on Web Search and Data Mining (WSDM), 1390–1391.</span>
+    </li>
+    <li class="pub" data-type="journal">
+      <span class="year">2024</span>
+      <span class="title">O. Maddaluno, S. Della Penna, A. Pizzuti, <span class="me">M. Spezialetti</span>,
+        M. Corbetta et al., “Encoding manual dexterity through modulation of intrinsic α band
+        connectivity”.</span>
+      <span class="venue">Journal of Neuroscience, 44(20).</span>
+    </li>
+    <li class="pub" data-type="journal">
+      <span class="year">2023</span>
+      <span class="title">D. Sili, C. De Giorgi, A. Pizzuti, <span class="me">M. Spezialetti</span>,
+        F. de Pasquale, V. Betti, “The spatio-temporal architecture of everyday manual behavior”.</span>
+      <span class="venue">Scientific Reports, 13(1), 9451.</span>
+    </li>
+    <li class="pub" data-type="conference">
+      <span class="year">2023</span>
+      <span class="title"><span class="me">M. Spezialetti</span>, R. Gimenez De Lorenzo, G. L. Gravina,
+        G. Placidi, F. Rossi et al., “Spread-out Bragg peak in treatment planning system by mixed integer
+        linear programming: a proof of concept”.</span>
+      <span class="venue">IEEE 36th Int. Symp. on Computer-Based Medical Systems (CBMS), 548–554.</span>
+    </li>
+    <li class="pub" data-type="conference">
+      <span class="year">2023</span>
+      <span class="title">C. Epifanio, L. Forlizzi, F. Marzi, F. Mignosi, G. Placidi,
+        <span class="me">M. Spezialetti</span>, “On the k-Hamming and k-edit distances”.</span>
+      <span class="venue">ICTCS 2023 — Italian Conference on Theoretical Computer Science, 143–156.</span>
+    </li>
+    <li class="pub" data-type="journal">
+      <span class="year">2022</span>
+      <span class="title">E. Theodoridou, L. Cinque, F. Mignosi, G. Placidi, M. Polsinelli,
+        J. M. R. S. Tavares, <span class="me">M. Spezialetti</span>, “Hand tracking and gesture recognition
+        by multiple contactless sensors: a survey”.</span>
+      <span class="venue">IEEE Transactions on Human-Machine Systems.</span>
+    </li>
+    <li class="pub" data-type="conference">
+      <span class="year">2022</span>
+      <span class="title">D. Fossemò, F. Mignosi, L. Raggioli, <span class="me">M. Spezialetti</span>,
+        F. A. D'Asaro, “Using inductive logic programming to globally approximate neural networks for
+        preference learning: challenges and preliminary results”.</span>
+      <span class="venue">CEUR Workshop Proceedings, 67–83.</span>
+    </li>
+    <li class="pub" data-type="conference">
+      <span class="year">2022</span>
+      <span class="title"><span class="me">M. Spezialetti</span>, R. Di Filippo, R. Gimenez De Lorenzo,
+        G. L. Gravina, G. Placidi et al., “Optimizing nozzle travel time in proton therapy”.</span>
+      <span class="venue">IEEE 35th Int. Symp. on Computer-Based Medical Systems (CBMS), 441–446.</span>
+    </li>
+    <li class="pub" data-type="conference">
+      <span class="year">2021</span>
+      <span class="title"><span class="me">M. Spezialetti</span>, F. Lapenna, P. Caianiello, F. Fracchiolla,
+        F. Muciaccia et al., “Using deep learning for fast dose refinement in proton therapy”.</span>
+      <span class="venue">IEEE Int. Conf. on Systems, Man, and Cybernetics (SMC), 1783–1789.</span>
+    </li>
+    <li class="pub" data-type="journal">
+      <span class="year">2020</span>
+      <span class="title"><span class="me">M. Spezialetti</span>, G. Placidi, S. Rossi, “Emotion recognition
+        for human–robot interaction: recent advances and future perspectives”.</span>
+      <span class="venue">Frontiers in Robotics and AI, 145.</span>
+    </li>
+  </ul>
+
+  <p class="note">
+    <span lang="en">Full list (56 documents) in the <a href="cv_en.pdf">CV</a> and on
+      <a href="https://scholar.google.com/citations?user=UfLxHp8AAAAJ">Google Scholar</a>.</span>
+    <span lang="it">Elenco completo (56 documenti) nel <a href="cv_it.pdf">CV</a> e su
+      <a href="https://scholar.google.com/citations?user=UfLxHp8AAAAJ">Google Scholar</a>.</span>
+  </p>
+</section>
+
+<!-- ============================= DIDATTICA =========================== -->
+<section id="teaching">
+  <h2><span lang="en">Teaching &amp; theses</span><span lang="it">Didattica e tesi</span></h2>
+
+  <h3><span lang="en">Current courses</span><span lang="it">Corsi attuali</span></h3>
+  <ul>
+    <li class="news-item">
+      <div class="news-date"><span lang="en">since 2021/2022</span><span lang="it">dal 2021/2022</span></div>
+      <div class="news-body">
+        <span lang="en"><strong>Compilers</strong> — F0151, 6 CFU, Computer Science, DISIM.</span>
+        <span lang="it"><strong>Compilatori</strong> — F0151, 6 CFU, Informatica, DISIM.</span>
+      </div>
+    </li>
+    <li class="news-item">
+      <div class="news-date">2024</div>
+      <div class="news-body">
+        <span lang="en"><strong>Mälardalen University</strong> (ERASMUS+) — ML for signal and image
+          processing, deep learning and optimization in proton therapy.</span>
+        <span lang="it"><strong>Mälardalen University</strong> (ERASMUS+) — ML per segnali e immagini,
+          deep learning e ottimizzazione in protonterapia.</span>
+      </div>
+    </li>
+  </ul>
+
+  <h3><span lang="en">Previously</span><span lang="it">In passato</span></h3>
+  <ul>
+    <li class="news-item">
+      <div class="news-date">2021/22 – 2023/24</div>
+      <div class="news-body">
+        <span lang="en">Computer Science Skills — B0487, 3 CFU, Biotechnologies, DISCAB.</span>
+        <span lang="it">Abilità informatiche — B0487, 3 CFU, Biotecnologie, DISCAB.</span>
+      </div>
+    </li>
+    <li class="news-item">
+      <div class="news-date">2019/20 – 2020/21</div>
+      <div class="news-body">
+        <span lang="en">Introduction to Computability and Complexity · Information Retrieval · Theory of
+          Languages · Compilers Laboratory — Computer Science, DISIM.</span>
+        <span lang="it">Teoria della Calcolabilità e Complessità · Information Retrieval · Teoria dei
+          Linguaggi · Laboratorio di Compilatori — Informatica, DISIM.</span>
+      </div>
+    </li>
+  </ul>
+
+  <h3><span lang="en">Supervision &amp; thesis proposals</span><span lang="it">Tesi e supervisione</span></h3>
+  <p>
+    <span lang="en">Co-advisor of two Ph.D. students in Information and Communication Technology (DISIM).
+      I supervise B.Sc. and M.Sc. theses in Computer Science, Information Engineering and Mathematics on
+      optimization for proton therapy, machine learning on clinical and physiological data, explainable
+      models, and wearable sensing. Write me an email with a few lines on what interests you.</span>
+    <span lang="it">Co-tutor di due dottorandi in Information and Communication Technology (DISIM). Seguo
+      tesi triennali e magistrali in Informatica, Ingegneria dell'Informazione e Matematica su
+      ottimizzazione per la protonterapia, apprendimento automatico su dati clinici e fisiologici,
+      modelli spiegabili e sensoristica indossabile. Scrivimi una mail con due righe su ciò che ti
+      interessa.</span>
+  </p>
+  <p>
+    <span lang="en"><strong>Office hours:</strong> by appointment, DISIM — write to
+      <a href="mailto:matteo.spezialetti@univaq.it">matteo.spezialetti@univaq.it</a>.</span>
+    <span lang="it"><strong>Ricevimento:</strong> su appuntamento, DISIM — scrivere a
+      <a href="mailto:matteo.spezialetti@univaq.it">matteo.spezialetti@univaq.it</a>.</span>
+  </p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <span lang="en">Matteo Spezialetti · DISIM, University of L'Aquila · last update: October 2026</span>
+  <span lang="it">Matteo Spezialetti · DISIM, Università dell'Aquila · ultimo aggiornamento: ottobre 2026</span>
+</footer>
+
+<script>
+  // --- cambio lingua -------------------------------------------------
+  function setLang(lang){
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-set-lang]').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.setLang === lang));
+    });
+    try { localStorage.setItem('lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.dataset.setLang); });
+  });
+  (function(){
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch(e) {}
+    var guess = (navigator.language || 'en').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+    setLang(saved || guess);
+  })();
+
+  // --- filtro pubblicazioni -------------------------------------------
+  document.querySelectorAll('[data-filter]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.dataset.filter;
+      document.querySelectorAll('[data-filter]').forEach(function(b){
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+      document.querySelectorAll('#publist .pub').forEach(function(li){
+        li.style.display = (f === 'all' || li.dataset.type === f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
