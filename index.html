@@ -109,14 +109,18 @@
   .filters button{border:1px solid var(--line); background:#fff; color:var(--muted);
     border-radius:999px; padding:5px 14px; cursor:pointer}
   .filters button[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:#fff}
-  .pub{padding:12px 0; border-bottom:1px dotted var(--line)}
+  .pub{padding:12px 0; border-bottom:1px dotted var(--line);
+       display:flex; gap:16px; align-items:baseline; justify-content:space-between}
+  .pub-main{flex:1 1 auto; min-width:0}
   .pub:last-child{border-bottom:0}
   .pub .title{display:block}
   .pub .venue{color:var(--muted); font-size:15px}
   .pub .year{font-family:system-ui,sans-serif; font-size:13px; color:var(--accent); margin-right:10px}
   .me{font-weight:700}
-  .cit{display:inline-block; font-family:system-ui,sans-serif; font-size:12px; white-space:nowrap;
-       color:var(--accent); background:var(--accent-soft); border-radius:4px; padding:1px 7px; margin-left:6px}
+  /* citazioni: indicazione discreta, allineata a destra */
+  .cit{flex:0 0 auto; font-family:system-ui,sans-serif; font-size:12.5px; white-space:nowrap;
+       color:var(--muted); text-align:right}
+  .cit b{color:var(--accent); font-weight:600}
   .note{font-size:14px; color:var(--muted)}
 
   footer{padding:28px 0 50px; color:var(--muted); font-size:14px;
@@ -129,6 +133,8 @@
     .news-date{flex-basis:82px; font-size:13px}
     nav{gap:12px; font-size:13px}
     .stats{gap:18px}
+    .pub{flex-wrap:wrap; gap:4px}
+    .cit{width:100%; text-align:left}
   }
   @media print{ header.top{display:none} section{break-inside:avoid} }
 </style>
@@ -387,91 +393,113 @@
 
   <ul id="publist">
     <li class="pub" data-type="journal">
-      <span class="year">2026</span>
-      <span class="title">D. Fossemò, F. Mignosi, G. Placidi, L. Raggioli, <span class="me">M. Spezialetti</span>,
-        F. A. D'Asaro, “Explaining neural networks in preference learning: a post hoc inductive logic
-        programming approach”.</span>
-      <span class="venue">Theory and Practice of Logic Programming, 1–49.</span>
+      <div class="pub-main">
+        <span class="year">2026</span>
+        <span class="title">D. Fossemò, F. Mignosi, G. Placidi, L. Raggioli, <span class="me">M. Spezialetti</span>, F. A. D'Asaro,
+          “Explaining neural networks in preference learning: a post hoc inductive logic programming
+          approach”.</span>
+        <span class="venue">Theory and Practice of Logic Programming, 1–49.</span>
+      </div>
     </li>
     <li class="pub" data-type="journal">
-      <span class="year">2024</span>
-      <span class="title">O. Maddaluno, S. Della Penna, A. Pizzuti, <span class="me">M. Spezialetti</span>,
-        M. Corbetta et al., “Encoding manual dexterity through modulation of intrinsic α band
-        connectivity”.</span>
-      <span class="venue">The Journal of Neuroscience, 44(20).</span>
+      <div class="pub-main">
+        <span class="year">2024</span>
+        <span class="title">O. Maddaluno, S. Della Penna, A. Pizzuti, <span class="me">M. Spezialetti</span>, M. Corbetta et al.,
+          “Encoding manual dexterity through modulation of intrinsic α band connectivity”.</span>
+        <span class="venue">The Journal of Neuroscience, 44(20).</span>
+      </div>
+      <span class="cit"><b>12</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
     <li class="pub" data-type="conference">
-      <span class="year">2023</span>
-      <span class="title">C. Epifanio, L. Forlizzi, F. Marzi, F. Mignosi, G. Placidi,
-        <span class="me">M. Spezialetti</span>, “On the k-Hamming and k-edit distances”.</span>
-      <span class="venue">ICTCS 2023 — Italian Conference on Theoretical Computer Science, 143–156.</span>
+      <div class="pub-main">
+        <span class="year">2023</span>
+        <span class="title">C. Epifanio, L. Forlizzi, F. Marzi, F. Mignosi, G. Placidi, <span class="me">M. Spezialetti</span>,
+          “On the k-Hamming and k-edit distances”.</span>
+        <span class="venue">ICTCS 2023 — Italian Conference on Theoretical Computer Science, 143–156.</span>
+      </div>
+      <span class="cit"><b>6</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
     <li class="pub" data-type="journal">
-      <span class="year">2022</span>
-      <span class="title">E. Theodoridou, L. Cinque, F. Mignosi, G. Placidi, M. Polsinelli,
-        J. M. R. S. Tavares, <span class="me">M. Spezialetti</span>, “Hand tracking and gesture recognition
-        by multiple contactless sensors: a survey”.</span>
-      <span class="venue">IEEE Transactions on Human-Machine Systems, 53(1), 35–43.</span>
-      <span class="cit">38 <span lang="en">citations</span><span lang="it">citazioni</span></span>
+      <div class="pub-main">
+        <span class="year">2022</span>
+        <span class="title">E. Theodoridou, L. Cinque, F. Mignosi, G. Placidi, M. Polsinelli, J. M. R. S. Tavares,
+          <span class="me">M. Spezialetti</span>, “Hand tracking and gesture recognition by multiple
+          contactless sensors: a survey”.</span>
+        <span class="venue">IEEE Transactions on Human-Machine Systems, 53(1), 35–43.</span>
+      </div>
+      <span class="cit"><b>38</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
     <li class="pub" data-type="conference">
-      <span class="year">2021</span>
-      <span class="title"><span class="me">M. Spezialetti</span>, F. Lapenna, P. Caianiello, F. Fracchiolla,
-        F. Muciaccia et al., “Using deep learning for fast dose refinement in proton therapy”.</span>
-      <span class="venue">IEEE Int. Conf. on Systems, Man, and Cybernetics (SMC), 1783–1789.</span>
+      <div class="pub-main">
+        <span class="year">2021</span>
+        <span class="title"><span class="me">M. Spezialetti</span>, F. Lapenna, P. Caianiello, F. Fracchiolla, F. Muciaccia et al.,
+          “Using deep learning for fast dose refinement in proton therapy”.</span>
+        <span class="venue">IEEE Int. Conf. on Systems, Man, and Cybernetics (SMC), 1783–1789.</span>
+      </div>
+      <span class="cit"><b>9</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
     <li class="pub" data-type="journal">
-      <span class="year">2020</span>
-      <span class="title"><span class="me">M. Spezialetti</span>, G. Placidi, S. Rossi, “Emotion recognition
-        for human–robot interaction: recent advances and future perspectives”.</span>
-      <span class="venue">Frontiers in Robotics and AI, 7, 532279.</span>
-      <span class="cit">376 <span lang="en">citations</span><span lang="it">citazioni</span></span>
+      <div class="pub-main">
+        <span class="year">2020</span>
+        <span class="title"><span class="me">M. Spezialetti</span>, G. Placidi, S. Rossi, “Emotion recognition for human–robot
+          interaction: recent advances and future perspectives”.</span>
+        <span class="venue">Frontiers in Robotics and AI, 7, 532279.</span>
+      </div>
+      <span class="cit"><b>376</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
     <li class="pub" data-type="journal">
-      <span class="year">2020</span>
-      <span class="title">M. Rescigno, <span class="me">M. Spezialetti</span>, S. Rossi, “Personalized models
-        for facial emotion recognition through transfer learning”.</span>
-      <span class="venue">Multimedia Tools and Applications, 79(47), 35811–35828.</span>
-      <span class="cit">66 <span lang="en">citations</span><span lang="it">citazioni</span></span>
+      <div class="pub-main">
+        <span class="year">2020</span>
+        <span class="title">M. Rescigno, <span class="me">M. Spezialetti</span>, S. Rossi, “Personalized models for facial emotion
+          recognition through transfer learning”.</span>
+        <span class="venue">Multimedia Tools and Applications, 79(47), 35811–35828.</span>
+      </div>
+      <span class="cit"><b>66</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
     <li class="pub" data-type="conference">
-      <span class="year">2020</span>
-      <span class="title">F. A. D'Asaro, <span class="me">M. Spezialetti</span>, L. Raggioli, S. Rossi,
-        “Towards an inductive logic programming approach for explaining black-box preference learning
-        systems”.</span>
-      <span class="venue">Proc. of the Int. Conf. on Principles of Knowledge Representation and Reasoning
-        (KR), 855–859.</span>
-      <span class="cit">20 <span lang="en">citations</span><span lang="it">citazioni</span></span>
+      <div class="pub-main">
+        <span class="year">2020</span>
+        <span class="title">F. A. D'Asaro, <span class="me">M. Spezialetti</span>, L. Raggioli, S. Rossi, “Towards an inductive
+          logic programming approach for explaining black-box preference learning systems”.</span>
+        <span class="venue">Proc. of the Int. Conf. on Principles of Knowledge Representation and Reasoning (KR), 855–859.</span>
+      </div>
+      <span class="cit"><b>20</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
     <li class="pub" data-type="journal">
-      <span class="year">2018</span>
-      <span class="title"><span class="me">M. Spezialetti</span>, L. Cinque, J. M. R. S. Tavares, G. Placidi,
-        “Towards EEG-based BCI driven by emotions for addressing BCI-illiteracy: a meta-analytic
-        review”.</span>
-      <span class="venue">Behaviour &amp; Information Technology, 37(8), 855–871.</span>
-      <span class="cit">41 <span lang="en">citations</span><span lang="it">citazioni</span></span>
+      <div class="pub-main">
+        <span class="year">2018</span>
+        <span class="title"><span class="me">M. Spezialetti</span>, L. Cinque, J. M. R. S. Tavares, G. Placidi, “Towards EEG-based
+          BCI driven by emotions for addressing BCI-illiteracy: a meta-analytic review”.</span>
+        <span class="venue">Behaviour &amp; Information Technology, 37(8), 855–871.</span>
+      </div>
+      <span class="cit"><b>41</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
     <li class="pub" data-type="journal">
-      <span class="year">2018</span>
-      <span class="title">G. Placidi, L. Cinque, M. Polsinelli, <span class="me">M. Spezialetti</span>,
-        “Measurements by a LEAP-based virtual glove for the hand rehabilitation”.</span>
-      <span class="venue">Sensors, 18(3), 834.</span>
-      <span class="cit">56 <span lang="en">citations</span><span lang="it">citazioni</span></span>
+      <div class="pub-main">
+        <span class="year">2018</span>
+        <span class="title">G. Placidi, L. Cinque, M. Polsinelli, <span class="me">M. Spezialetti</span>, “Measurements by a
+          LEAP-based virtual glove for the hand rehabilitation”.</span>
+        <span class="venue">Sensors, 18(3), 834.</span>
+      </div>
+      <span class="cit"><b>56</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
     <li class="pub" data-type="journal">
-      <span class="year">2015</span>
-      <span class="title">D. Iacoviello, A. Petracca, <span class="me">M. Spezialetti</span>, G. Placidi,
-        “A real-time classification algorithm for EEG-based BCI driven by self-induced emotions”.</span>
-      <span class="venue">Computer Methods and Programs in Biomedicine, 122(3), 293–303.</span>
-      <span class="cit">136 <span lang="en">citations</span><span lang="it">citazioni</span></span>
+      <div class="pub-main">
+        <span class="year">2015</span>
+        <span class="title">D. Iacoviello, A. Petracca, <span class="me">M. Spezialetti</span>, G. Placidi, “A real-time
+          classification algorithm for EEG-based BCI driven by self-induced emotions”.</span>
+        <span class="venue">Computer Methods and Programs in Biomedicine, 122(3), 293–303.</span>
+      </div>
+      <span class="cit"><b>136</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
     <li class="pub" data-type="journal">
-      <span class="year">2015</span>
-      <span class="title">D. Iacoviello, A. Petracca, <span class="me">M. Spezialetti</span>, G. Placidi,
-        “A classification algorithm for electroencephalography signals by self-induced emotional
-        stimuli”.</span>
-      <span class="venue">IEEE Transactions on Cybernetics, 46(12), 3171–3180.</span>
-      <span class="cit">63 <span lang="en">citations</span><span lang="it">citazioni</span></span>
+      <div class="pub-main">
+        <span class="year">2015</span>
+        <span class="title">D. Iacoviello, A. Petracca, <span class="me">M. Spezialetti</span>, G. Placidi, “A classification
+          algorithm for electroencephalography signals by self-induced emotional stimuli”.</span>
+        <span class="venue">IEEE Transactions on Cybernetics, 46(12), 3171–3180.</span>
+      </div>
+      <span class="cit"><b>63</b> <span lang="en">citations</span><span lang="it">citazioni</span></span>
     </li>
   </ul>
 
